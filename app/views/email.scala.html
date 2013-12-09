@@ -1,0 +1,22 @@
+@(title: String)(content: Html)
+<html>
+<head>
+  <style type="text/css">
+    body { font-family: sans; font-size: 10pt; }
+    h1 { font-size: 12pt; }
+    h2 { font-size: 11pt; }
+    ul { list-style-type: none; margin-left: 0; padding-left: 0; }
+    thead { font-weight: bold; text-align: center; }
+    table { font-size: 9pt; border-collapse: collapse; }
+    thead td { background-color: black; color: white; }
+    td { margin-left: 4px; margin-right: 4px; padding: 2px; }
+  </style>
+  <title>@title</title>
+</head>
+<body>
+<h1>@title</h1>
+<div>
+@content
+</div>
+</body>
+</html>

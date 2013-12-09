@@ -1,0 +1,10 @@
+@(title: String, push: Push)
+
+@email(title) {
+  <ul>
+    <li>Repository: <b><a href="@push.repository.url">@push.repository.name</a></b></li>
+    <li>Branch: <b><a href="@push.repository.url/commits/@push.ref.substring(11)">@push.ref.substring(11)</a></b></li>
+    <li>Old head: <b><a href="@push.repository.url/commit/@push.before">@push.before.take(6)</a></b></li>
+    <li>User: <b>@push.user_name</b></li>
+  </ul>
+}

@@ -1,0 +1,23 @@
+@(title: String, push: Push)
+
+@email(title) {
+  <ul>
+    <li>Repository: <b><a href="@push.repository.url">@push.repository.name</a></b></li>
+    <li>Branch: <b><a href="@push.repository.url/commits/@push.ref.substring(11)">@push.ref.substring(11)</a></b></li>
+    <li>Old head: <b><a href="@push.repository.url/commit/@push.before">@push.before.take(6)</a></b></li>
+    <li>New head: <b><a href="@push.repository.url/commit/@push.after">@push.after.take(6)</a></b></li>
+    <li>Differences: <b><a href="@push.repository.url/compare/@push.before...@push.after">compare</a></b></li>
+    <li>User: <b>@push.user_name</b></li>
+  </ul>
+  <table>
+    <thead><tr><td>Timestamp</td><td>Commit</td><td>Author</td><td>Message</td></tr></thead>
+    <tbody>@for(commit ← push.commits) {
+      <tr>
+        <td>@commit.timestamp.toString("dd/MM/yyyy HH:mm:ss z")</td>
+        <td><a href="@push.repository.url/commit/@commit.id">@commit.id.take(6)</a></td>
+        <td><a href="mailto:@commit.author.email?subject=Commit%20@commit.id%20at%20@push.repository.name%20repository&body=Ref.%20@push.repository.url/commit/@commit.id">@commit.author.name</a></td>
+        <td>@for(line ← commit.message.split("\n")) { @line <br/> }</td>
+      </tr>}
+    </tbody>
+  </table>
+}

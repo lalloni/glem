@@ -3,4 +3,4 @@
 # ~~~~
 
 # Mailer handlers
-POST   /push           controllers.Mailer.push(recipients: String)
+POST   /push           controllers.Application.push(recipients: String)
