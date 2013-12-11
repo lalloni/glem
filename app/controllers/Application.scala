@@ -26,7 +26,7 @@ object Application extends Controller {
   }
 
   def branchCreatedEmail(push: Push) = {
-    val subject = s"[GitLab] [${push.repository.name}] ${push.user_name} pushed ${push.total_commits_count} commits in new branch ${push.ref.substring(11)}"
+    val subject = s"[GitLab] [${push.repository.name}] ${push.user_name} pushed new branch ${push.ref.substring(11)}"
     val title = s"${push.user_name} pushed a new branch ${push.ref.substring(11)}"
     Email(
       subject = subject,
