@@ -1,6 +1,6 @@
 name := "glem"
 
-version := "0.2"
+version := "0.3-SNAPSHOT"
 
 libraryDependencies ++= Seq(
   jdbc,
