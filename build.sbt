@@ -5,11 +5,9 @@ version := "0.1.1"
 libraryDependencies ++= Seq(
   jdbc,
   anorm,
-  cache
+  cache,
+  "com.typesafe" %% "play-plugins-mailer" % "2.2.0"
 )
 
 play.Project.playScalaSettings
 
-resolvers += "Rhinofly Internal Release Repository" at "http://maven-repository.rhinofly.net:8081/artifactory/libs-release-local"
-
-libraryDependencies += "play.modules.mailer" %% "play-mailer" % "2.1.3"
